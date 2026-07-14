@@ -1,0 +1,4 @@
+almaz,1000
+alemitu,2000
+abeba,300
+kebede,150

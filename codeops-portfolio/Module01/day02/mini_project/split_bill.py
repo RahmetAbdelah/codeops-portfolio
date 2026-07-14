@@ -9,9 +9,8 @@ money=int(input("enter the amount of money"))
 person=int(input("enter the number of people"))
 names=[]
 
-#for i in range(person):
- #  input(f"enter person number {i}"
+result=split_bill(money,person)
 
+for i in range(person):
+  print(f"person {i+1} ows {result}")
 
-
-print(split_bill(money,person))
