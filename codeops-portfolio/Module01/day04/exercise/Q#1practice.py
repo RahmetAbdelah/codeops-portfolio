@@ -7,5 +7,6 @@ class Book:
         print(f"the book {self.title} is written by {self.author} and is {self.pages} page")
 
 
-Alittle_Life=Book(A_Little_Life,Hanya,650)
+Alittle_Life=Book("A_Little_Life","Hanya",650)
+Atomic_habits=Book("Atomic_habits","James",320)
 
