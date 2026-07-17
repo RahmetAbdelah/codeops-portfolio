@@ -8,7 +8,7 @@ class Account:
     def balance(self):
         return self.__balance
 
-    # deposit money
+ 
     def deposit(self, amount):
         if amount <= 0:
             raise ValueError("Amount must be positive")
@@ -22,7 +22,7 @@ class Account:
             raise ValueError("Not enough balance")
         self.__balance -= amount
 
-    # print account info
+    
     def statement(self):
         print("Owner:", self.owner)
         print("Account Number:", self.account_number)
