@@ -7,6 +7,7 @@ class Vehicle:
     def decribe(self):
         pass
 
+
 class car(Vehicle):
     pass
 class Truck(Vehicle):
@@ -14,4 +15,4 @@ class Truck(Vehicle):
         super().__init__(make,model)
         self.capacity=capacity
     def describe(self,make,model,capacity):
-        print(f"the model we have is {model},and our capcity is {capacity}")
+        print(f"the model we have is {model},and our capcity is {capacity},this is the current information")
