@@ -1,0 +1,5 @@
+#list index=O(1)
+#single loop=O(n)
+nested loop=O(n^2)
+dictionary lookup=O(1)
+binary search=O(log n)
