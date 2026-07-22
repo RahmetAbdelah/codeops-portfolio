@@ -11,8 +11,7 @@ class Stack:
     def peek(self):
         return self.items[-1] if self.items else None
 
-# Use stack to reverse list
-names = ["Ali", "Sara", "John"]
+names = ["Ali", "Sara", "abebe"]
 
 stack = Stack()
 for name in names:
