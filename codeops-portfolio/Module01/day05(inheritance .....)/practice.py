@@ -16,3 +16,8 @@ class Truck(Vehicle):
         self.capacity=capacity
     def describe(self,make,model,capacity):
         print(f"the model we have is {model},and our capcity is {capacity},this is the current information")
+
+
+
+
+

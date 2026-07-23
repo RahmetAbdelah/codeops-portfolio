@@ -14,10 +14,9 @@ def adjust(item, amount):
 
 adjust("paracetamol", 5)
 
-print("Low stock items:")
-for item, qty in stock.items():
-    if qty < 10:
-        print(item, "=", qty)
+low=[item for item,amount in stock.items() if amount<10]
+
+print("Low stock items:", low)
 
 with open("stock.txt", "w") as f:
     for item, qty in stock.items():
