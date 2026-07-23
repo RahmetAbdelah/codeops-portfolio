@@ -26,16 +26,7 @@ class Account:
         print("Balance:", self.__balance, "ETB")
 
     def _adjust_balance(self, delta):
-        """
-        Protected hook for subclasses.
-
-        __balance is name-mangled and private to Account, so a subclass
-        can't touch it directly (self.__balance inside a subclass would
-        refer to _Subclass__balance, not _Account__balance). This method
-        gives subclasses a controlled way to change the balance (e.g. for
-        interest or overdraft) without breaking encapsulation or duplicating
-        the private attribute.
-        """
+      
         self.__balance += delta
 
 
@@ -82,6 +73,7 @@ class BusinessAccount(CheckingAccount):
         super().__init__(owner, number, balance, overdraft_limit)
         if monthly_fee < 0:
             raise ValueError("Monthly fee cannot be negative")
+        
         self.monthly_fee = monthly_fee
 
     def charge_monthly_fee(self):
@@ -97,16 +89,20 @@ class BusinessAccount(CheckingAccount):
 if __name__ == "__main__":
     print("--- Savings ---")
     sav = SavingsAccount("Abebe", "SA-001", 1000, interest_rate=0.05)
+
     sav.deposit(500)
     sav.apply_interest()
     sav.statement()
 
     print("\n--- Checking ---")
     chk = CheckingAccount("Sara", "CH-001", 200, overdraft_limit=300)
-    chk.withdraw(400)  # dips into overdraft
+
+    chk.withdraw(400)  
     chk.statement()
 
     print("\n--- Business ---")
+
     biz = BusinessAccount("Kebede & Sons", "BZ-001", 2000)
+    
     biz.charge_monthly_fee()
     biz.statement()
