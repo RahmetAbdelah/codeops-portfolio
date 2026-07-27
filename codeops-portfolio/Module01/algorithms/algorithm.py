@@ -78,7 +78,7 @@ def isDual(arr):
 
 #question number 6
 def digitalClock(seconds):
-    seconds = seconds % (24 * 3600)  # handle next day
+    seconds = seconds % (24 * 3600) 
 
     hours = seconds // 3600
     minutes = (seconds % 3600) // 60
