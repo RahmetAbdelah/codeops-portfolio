@@ -1,0 +1,46 @@
+
+.menu-container {
+  display: grid;
+  grid-template-columns: 1fr; 
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.menu-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  padding: 1.5rem;
+  border-radius: 8px;
+
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.menu-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Step 3: Add media queries for responsive columns */
+/* Tablet: 2 columns */
+@media (min-width: 768px) {
+  .menu-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop: 3 columns */
+@media (min-width: 1024px) {
+  .menu-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-card {
+    transition: none;
+  }
+  .menu-card:hover {
+    transform: none; 
+  }
+}

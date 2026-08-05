@@ -5,16 +5,10 @@
 }
 
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+
 
 body {
-  font-family: "Georgia", "Times New Roman", serif;
+ 
   line-height: 1.5;
   color: var(--color-ink);
   background-color: var(--color-cream);
@@ -28,8 +22,8 @@ body {
   background-color: var(--color-cream);
   border: 1px solid var(--color-gold);
   border-top: 6px solid var(--color-gold);
-  border-radius: 4px;
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  border-radius: 4px
+
 }
 
 .menu-card:hover {
@@ -50,7 +44,7 @@ body {
 }
 
 .menu-card__ingredients {
-  list-style: none;
+ 
   margin-bottom: 1.25rem;
   border-top: 1px solid var(--color-gold);
   border-bottom: 1px solid var(--color-gold);
@@ -60,9 +54,7 @@ body {
   padding: 0.4rem 0.5rem;
 }
 
-.menu-card__ingredients li:nth-child(even) {
-  background-color: rgba(201, 162, 75, 0.12);
-}
+
 
 .menu-card__price {
   font-size: 1.2rem;
