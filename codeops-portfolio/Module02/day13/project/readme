@@ -1,0 +1,26 @@
+# Day 13 Challenge: Business Profile Card
+
+## Business Profile
+-
+---
+
+## CSS Techniques Used
+
+1. **Custom Properties (`:root`):**
+   - Configured central design tokens including color palettes (in `hsl`), font family, and a standard spacing scale (`--space-xs` to `--space-lg`).
+
+2. **Global Box Model Reset:**
+   - Universal selector (`*`) applied with `box-sizing: border-box` to ensure accurate size calculations across padding and border boundaries.
+
+3. **Google Web Fonts Integration:**
+   - Imported `'Plus Jakarta Sans'` from Google Fonts with custom weights (400, 600, 700) for a modern, clean editorial look.
+
+4. **Centered Card Component:**
+   - Used the CSS Box Model with `margin: auto`, generous `padding`, border radius, subtle box shadows, and max-width bounds (`400px`) for responsive viewports.
+
+5. **HSL Lightness Modification:**
+   - Constructed the primary button interactive state (`:hover`) by modifying only the lightness parameter in `hsl()` (from `35%` up to `48%`), maintaining identical hue and saturation.
+
+6. **Pseudo-elements (`::before`):**
+   - **Top Accent Line:** Designed a gradient accent stripe positioned absolutely over the card container using `.card::before`.
+   - **Inline Indicator:** Used `.hours::before` to prepend a status bullet point next to operating hours.

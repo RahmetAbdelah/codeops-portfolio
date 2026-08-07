@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telebirr Web Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app">
+    <!-- 1. STICKY HEADER WITH FLEXBOX NAVBAR -->
+    <header class="header">
+      <div class="logo">
+        <span class="logo-text">tele<span class="highlight">birr</span></span>
+      </div>
+      <nav class="navbar">
+        <a href="#" class="active">Dashboard</a>
+        <a href="#">Transactions</a>
+        <a href="#">Services</a>
+        <a href="#">Help & Support</a>
+        <button class="btn-primary">Logout</button>
+      </nav>
+    </header>
+
+    <!-- 2. SIDEBAR -->
+    <aside class="sidebar">
+      <div class="user-profile">
+        <div class="avatar">A</div>
+        <div>
+          <h3>Abebe Bikila</h3>
+          <p>+251 91 123 4567</p>
+        </div>
+      </div>
+      <ul class="sidebar-menu">
+        <li class="active"><a href="#"> Overview</a></li>
+        <li><a href="#"> Send Money</a></li>
+        <li><a href="#"> Airtime & Package</a></li>
+        <li><a href="#"> Utility Bills</a></li>
+        <li><a href="#"> Merchant Payment</a></li>
+        <li><a href="#"> Settings</a></li>
+      </ul>
+    </aside>
+
+    <!-- 3. MAIN CONTENT AREA WITH FLEXBOX STAT CARDS & RESPONSIVE AUTO-FIT GRID -->
+    <main class="main">
+      <div class="main-header">
+        <h2>Account Summary</h2>
+        <span class="status-badge"> Verified Account</span>
+      </div>
+
+      <!-- Stat Cards Row (Flexbox) -->
+      <section class="stat-cards flex-container">
+        <div class="stat-card">
+          <h4>Main Balance</h4>
+          <p class="amount">ETB 14,250.00</p>
+          <span class="trend positive">+ ETB 2,500 this week</span>
+        </div>
+        <div class="stat-card">
+          <h4>Sanduq Savings</h4>
+          <p class="amount">ETB 50,000.00</p>
+          <span class="subtext">Interest accrued: ETB 410.00</span>
+        </div>
+        <div class="stat-card">
+          <h4>Endod Micro-Loan</h4>
+          <p class="amount">ETB 0.00</p>
+          <span class="subtext">Available limit: ETB 10,000</span>
+        </div>
+      </section>
+
+      <!-- Services Section with Responsive Card Grid (repeat(auto-fit, minmax(...))) -->
+      <section class="services-section">
+        <h3>Quick Services</h3>
+        <div class="cards-grid">
+
+          <!-- Card 1 with ABSOLUTELY POSITIONED BADGE -->
+          <div class="service-card">
+            <span class="badge">HOT</span>
+            <div class="icon-box"></div>
+            <h4>Ethio Telecom Packages</h4>
+            <p>Buy voice, data, and combo bundles directly with telebirr.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="icon-box">⚡</div>
+            <h4>EEU Electricity</h4>
+            <p>Pay post-paid and pre-paid electricity bills instant top-up.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="icon-box">🚰</div>
+            <h4>AAWSA Water</h4>
+            <p>Settle monthly water consumption fees instantly.</p>
+          </div>
+
+          <div class="service-card">
+            <span class="badge new-badge">NEW</span>
+            <div class="icon-box">✈️</div>
+            <h4>Ethiopian Airlines</h4>
+            <p>Book domestic & international flights seamlessly.</p>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <!-- 4. FOOTER -->
+    <footer class="footer">
+      <p>&copy; 2026 Ethio Telecom Telebirr. All rights reserved. | Powered by CodeOps</p>
+    </footer>
+  </div>
+
+</body>
+</html>

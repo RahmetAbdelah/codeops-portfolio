@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/register" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+        <label for="phone">phone:</label>
+        <input type="tel" id="phone" name="phone" pattern="+251[0-9]{9}  aria-describedby="phoneHelp" required>
+        <p id="phoneHelp">Please enter a valid phone number in the format +251</p>
+
+    </form>
+    <hr>
+
+    <table>
+        <caption>Ethiopian Airlines Flight Schedules and Fares</caption>
+        <thead>
+          <tr>
+            <th scope="col">Flight</th>
+            <th scope="col">From</th>
+            <th scope="col">To</th>
+            <th scope="col">Departs</th>
+            <th scope="col">Price ETB</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">ET 302</th>
+            <td>Addis Ababa (ADD)</td>
+            <td>Nairobi (NBO)</td>
+            <td>08:15</td>
+            <td>18,500</td>
+          </tr>
+          <tr>
+            <th scope="row">ET 600</th>
+            <td>Addis Ababa (ADD)</td>
+            <td>Dubai (DXB)</td>
+            <td>22:30</td>
+            <td>24,200</td>
+          </tr>
+          <tr>
+            <th scope="row">ET 700</th>
+            <td>Addis Ababa (ADD)</td>
+            <td>London (LHR)</td>
+            <td>01:20</td>
+            <td>45,000</td>
+          </tr>
+          <tr>
+            <th scope="row">ET 500</th>
+            <td>Addis Ababa (ADD)</td>
+            <td>Washington D.C. (IAD)</td>
+            <td>23:00</td>
+            <td>62,000</td>
+          </tr>
+          <tr>
+            <th scope="row">ET 801</th>
+            <td>Addis Ababa (ADD)</td>
+            <td>Johannesburg (JNB)</td>
+            <td>08:50</td>
+            <td>29,800</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr>
+    <figure>
+        <img src="doro-wat.jpg" alt="A freshly prepared plate of Doro Wat served over Ethiopian injera with boiled eggs" width="600" height="400" loading="lazy">
+        <figcaption>Ethiopian Doro Wat served with injera .</figcaption>
+      </figure>
+
+      <!-- Map Iframe with title attribute -->
+      <iframe 
+        src="https://maps.google.com/maps?q=Bole,Addis+Ababa&amp;output=embed" 
+        title="Google Map showing the location of Bole district in Addis Ababa, Ethiopia"
+        width="600" 
+        height="450" 
+        loading="lazy"
+      ></iframe>
+
+
+      <hr>
+   
+  
+      <h2>Accessibility Improvements</h2>
+
+      <!-- 
+        1. Inaccessible: <div onclick="submit()">Submit</div>
+        Fixed: Native <button> element.
+        Benefit: Allows keyboard users to focus using Tab and activate with Enter/Space. Screen readers announce it as an interactive button control natively without extra JS/ARIA needed.
+      -->
+      <button type="button">Submit Form</button>
+
+      <!-- 
+        2. Inaccessible: <input type="text" placeholder="Enter name">
+        Fixed: Connected <label> with for/id attributes.
+        Benefit: Screen readers announce the field label when focused. Tapping the label focuses the input field on mobile/touch screens. Unlike a placeholder, it stays visible while typing.
+      -->
+      <div>
+        <label for="user-name">User Name</label>
+        <input type="text" id="user-name" name="user-name">
+      </div>
+
+      <!-- 
+        3. Inaccessible: <img src="lalibela.jpg">
+        Fixed: Meaningful alt attribute added.
+        Benefit: Screen readers describe the visual content to visually impaired users. If the image fails to load, the alt text renders on screen in its place.
+      -->
+      <img src="lalibela.jpg" alt="Rock-hewn church of Bete Giyorgis carved into the ground in Lalibela" width="600" height="400">
+</body>
+</html>
