@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <form id="form">
+    <label>enter the bill</label>
+    <input id="bill" type="number">
+    <label>enter the size</label>
+    <input id="size" type="size">
+
+   </form>
+    <script src="script.js">
+        const form=document.getelementById(form);
+        const bill=document.getelementById(bill).value;
+        const size=document.getelementById(size).value;
+        let total=bill+(bill*0.1);
+let portion=total/num
+
+for(let i=1;i<=num;i++){
+   console.log("person "+ i +" ows "+ portion+" ETB")
+}
+    </script>
+</body>
+</html>

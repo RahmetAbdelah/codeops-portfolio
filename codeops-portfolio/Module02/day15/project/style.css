@@ -6,7 +6,7 @@
 }
 
 :root {
-  /* Brand Palette */
+
   --primary: #9e2a2b;      
   --primary-hover: #7a2021;
   --secondary: #d4a027;    
@@ -193,9 +193,7 @@ body {
   }
 }
 
-/* ==========================================================================
-   5. MENU GRID (Auto-fit Cards)
-   ========================================================================== */
+
 .menu-grid {
   display: grid;
   /* Reflows 1 -> 2 -> 3 columns automatically depending on viewport */
@@ -257,22 +255,8 @@ body {
 }
 
 /* Positioned Badge */
-.badge {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: var(--secondary);
-  color: #000000;
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 0.25rem 0.6rem;
-  border-radius: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
 
-/* ==========================================================================
-   6. RESERVATION FORM
-   ========================================================================== */
+
 .form-container {
   max-width: 600px;
   background-color: var(--bg-card);
@@ -326,9 +310,7 @@ body {
   }
 }
 
-/* ==========================================================================
-   7. FOOTER & MEDIA QUERIES
-   ========================================================================== */
+
 .footer {
   background-color: #1a1a1a;
   color: #cccccc;
@@ -355,7 +337,7 @@ body {
 }
 
 
-@media (min-width: 768px) {
+@media (min-width: 760px) {
   .footer-grid {
     grid-template-columns: 2fr 1fr 1fr;
   }
