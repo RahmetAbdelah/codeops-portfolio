@@ -18,3 +18,5 @@ function render() {
         list.appendChild(li);
     });
 }
+
+render();
