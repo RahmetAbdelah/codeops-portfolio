@@ -63,4 +63,13 @@ list.addEventListener("click", function (event) {
     const id = Number(li.dataset.id);
 
     console.log(id);
+    const item = groceries.find(grocery => grocery.id === id);
+
+if (!item) {
+    return;
+}
+
+item.bought = !item.bought;
+
+render();
 });
