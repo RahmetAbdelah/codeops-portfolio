@@ -43,3 +43,9 @@ form.addEventListener("submit", function (event) {
 
     render();
 });
+
+
+const count = document.querySelector("#count");
+
+
+count.textContent = `${groceries.length} items`;
