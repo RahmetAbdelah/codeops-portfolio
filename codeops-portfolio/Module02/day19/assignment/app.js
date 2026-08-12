@@ -7,21 +7,29 @@ const groceries = [
 
 const list = document.querySelector("#list");
 
+const count = document.querySelector("#count");
+
+const form = document.querySelector("#add-form");
+const nameInput = document.querySelector("#name");
+
 function render() {
     list.innerHTML = "";
 
     groceries.forEach(item => {
         const li = document.createElement("li");
+        li.dataset.id = item.id;
 
         li.textContent = item.name;
 
         list.appendChild(li);
     });
+    
+count.textContent = `${groceries.length} items`;
+
 }
 
 
-const form = document.querySelector("#add-form");
-const nameInput = document.querySelector("#name");
+
 
 
 form.addEventListener("submit", function (event) {
@@ -45,7 +53,3 @@ form.addEventListener("submit", function (event) {
 });
 
 
-const count = document.querySelector("#count");
-
-
-count.textContent = `${groceries.length} items`;
