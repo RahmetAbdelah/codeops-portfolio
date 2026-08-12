@@ -19,4 +19,27 @@ function render() {
     });
 }
 
-render();
+
+const form = document.querySelector("#add-form");
+const nameInput = document.querySelector("#name");
+
+
+form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const name = nameInput.value.trim();
+
+    if (name === "") {
+        return;
+    }
+
+    groceries.push({
+        id: Date.now(),
+        name: name,
+        bought: false
+    });
+
+    nameInput.value = "";
+
+    render();
+});
