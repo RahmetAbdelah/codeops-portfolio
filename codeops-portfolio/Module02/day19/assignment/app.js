@@ -53,3 +53,14 @@ form.addEventListener("submit", function (event) {
 });
 
 
+list.addEventListener("click", function (event) {
+    const li = event.target.closest("li");
+
+    if (!li) {
+        return;
+    }
+
+    const id = Number(li.dataset.id);
+
+    console.log(id);
+});
