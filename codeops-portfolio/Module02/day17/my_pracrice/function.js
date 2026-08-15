@@ -47,10 +47,11 @@
 // console.log(adder(4,5,div));
 // console.log(adder(6,7,multi));
 
-function makeRecietMaker(){
-    let orderNo=0;
-    const memberoff=disscountby(0.1)
-    return function(
+// function makeRecietMaker(){
+//     let orderNo=0;
+//     const memberoff=disscountby(0.1)
+//     return function(
 
-    )
-   }
+//     )
+//    }
+
