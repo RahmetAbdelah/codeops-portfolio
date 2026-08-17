@@ -86,3 +86,16 @@ const menu=["dorowot","shiro","tibs"]
 // name;
 
 
+const dish=
+{  food:"tibs",
+    dessert:"cheese cake"
+
+};
+
+const copy={...dish,dessert:"choclatecake"}
+
+
+const {food,dessert}=dish;
+console.log(food,dessert);
+
+console.log(copy);
