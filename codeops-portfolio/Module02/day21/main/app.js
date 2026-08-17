@@ -35,3 +35,14 @@ form.addEventListener('submit', function (e) {
     return;
   }
 });
+function getSignups() {
+  const data = localStorage.getItem('signups');
+  return data ? JSON.parse(data) : [];
+}
+
+// Inside the form submit handler (after successful validation):
+const signups = getSignups();
+signups.push({ name: nameVal, phone: phoneVal, date: new Date().toISOString() });
+localStorage.setItem('signups', JSON.stringify(signups));
+
+form.reset();
