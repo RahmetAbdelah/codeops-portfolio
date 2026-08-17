@@ -46,3 +46,12 @@ signups.push({ name: nameVal, phone: phoneVal, date: new Date().toISOString() })
 localStorage.setItem('signups', JSON.stringify(signups));
 
 form.reset();
+const signupCount = document.getElementById('signupCount');
+
+function updateSignupCount() {
+  const signups = getSignups();
+  signupCount.textContent = `Total people signed up: ${signups.length}`;
+}
+
+
+document.addEventListener('DOMContentLoaded', updateSignupCount);
