@@ -12,3 +12,26 @@ form.addEventListener('submit', function (e) {
   
   console.log('Submitted:', nameVal, phoneVal);
 });
+
+// Ethiopian Phone Regex: +251..., 251..., or 09.../07... followed by 8 digits
+const ethiopianPhoneRegex = /^(?:\+251|251|0)(9|7)\d{8}$/;
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  errorMessage.textContent = '';
+
+  const nameVal = nameInput.value.trim();
+  const phoneVal = phoneInput.value.trim();
+
+  // Validate name length
+  if (nameVal.length < 2) {
+    errorMessage.textContent = 'Name must be at least 2 characters long.';
+    return;
+  }
+
+  // Validate Ethiopian phone number
+  if (!ethiopianPhoneRegex.test(phoneVal)) {
+    errorMessage.textContent = 'Please enter a valid Ethiopian phone number (e.g., +251912345678 or 0912345678).';
+    return;
+  }
+});
