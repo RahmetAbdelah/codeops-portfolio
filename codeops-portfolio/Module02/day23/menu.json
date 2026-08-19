@@ -1,0 +1,18 @@
+[
+    {
+        "id":1,
+        "name":"doro wot",
+        "category":"Main",
+        "price":240,
+        "spicy":true,
+        "image":"doro.jpg"
+    },
+    {
+        "id":2,
+        "name":"shiro",
+        "category":"Main",
+        "price":150,
+        "spicy":false,
+        "image":"shiro.jpg"
+    }
+]
