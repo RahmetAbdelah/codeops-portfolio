@@ -1,18 +1,44 @@
 [
     {
         "id":1,
-        "name":"doro wot",
-        "category":"Main",
+        "name":"penisillin",
         "price":240,
-        "spicy":true,
-        "image":"doro.jpg"
+        "prescription":true,
+        "image":"penicilin.jpg"
     },
     {
         "id":2,
-        "name":"shiro",
-        "category":"Main",
+        "name":"paracentamol",
         "price":150,
-        "spicy":false,
-        "image":"shiro.jpg"
+        "prescription":false,
+        "image":"paracentamol.jpg"
+    },
+     {
+        "id":3,
+        "name":"Vitamin c",
+        "price":250,
+        "prescription":false,
+        "image":"vitaminc.jpg"
+    },
+     {
+        "id":4,
+        "name":"Ibuprofin",
+        "price":350,
+        "prescription":true,
+        "image":"ibuprofin.jpg"
+    },
+     {
+        "id":5,
+        "name":"herbal tea",
+        "price":150,
+        "prescription":true,
+        "image":"herbal tea.jpg"
+    },
+     {
+        "id":6,
+        "name":"paracentamol",
+        "price":150,
+        "prescription":false,
+        "image":"paracentamol.jpg"
     }
 ]
