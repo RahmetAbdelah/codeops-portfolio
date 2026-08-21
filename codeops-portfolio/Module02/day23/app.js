@@ -15,6 +15,53 @@ if (searchEl) {
   });
 }
 
+// Checkout modal and form
+const checkoutModal = document.querySelector("#checkout-modal");
+const orderForm = document.querySelector("#order-form");
+const cancelBtn = document.querySelector("#cancel-btn");
+const closeBtn = document.querySelector(".modal-close");
+
+if (cancelBtn) {
+  cancelBtn.addEventListener("click", () => {
+    checkoutModal.style.display = "none";
+  });
+}
+
+if (closeBtn) {
+  closeBtn.addEventListener("click", () => {
+    checkoutModal.style.display = "none";
+  });
+}
+
+if (orderForm) {
+  orderForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    
+    const name = document.querySelector("#name").value.trim();
+    const phone = document.querySelector("#phone").value.trim();
+    const address = document.querySelector("#address").value.trim();
+    
+    if (!name || !phone || !address) {
+      alert("Please fill all fields");
+      return;
+    }
+    
+    if (state.cart.length === 0) {
+      alert("Cart is empty!");
+      return;
+    }
+    
+    const total = cartTotal();
+    alert(`Order Placed!\n\nName: ${name}\nPhone: ${phone}\nAddress: ${address}\n\nTotal: ${total} ETB\n\nThank you for your order!`);
+    
+    state.cart = [];
+    save();
+    render();
+    checkoutModal.style.display = "none";
+    orderForm.reset();
+  });
+}
+
 async function loadProduct() {
   if (!product) return;
   product.textContent = "Loading medicines...";
@@ -90,16 +137,40 @@ if (cartEl) {
 function renderCart() {
   if (!cartEl) return;
 
-  cartEl.innerHTML = state.cart
+  if (state.cart.length === 0) {
+    cartEl.innerHTML = `<h3>Your Order</h3><p>Empty</p>`;
+    return;
+  }
+
+  const total = cartTotal();
+  const cartHTML = state.cart
     .map(
       (i) => `
         <li data-id="${i.id}">
-          ${i.name} x${i.qty} - ${i.price * i.qty}ETB
+          ${i.name} x${i.qty} - ${i.price * i.qty} ETB
           <button class="rm">Remove</button>
         </li>
       `
     )
     .join("");
+
+  cartEl.innerHTML = `
+    <h3>Your Order</h3>
+    <ul>${cartHTML}</ul>
+    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #ccc;">
+      <strong>Total: ${total} ETB</strong>
+      <button id="checkout-btn" style="display: block; width: 100%; padding: 8px; margin-top: 8px; background: #1fa2b1; color: white; border: none; border-radius: 4px; cursor: pointer;">Checkout</button>
+    </div>
+  `;
+
+  const btn = document.querySelector("#checkout-btn");
+  if (btn) {
+    btn.addEventListener("click", () => {
+      if (checkoutModal) {
+        checkoutModal.style.display = "flex";
+      }
+    });
+  }
 }
 
 function cartTotal() {

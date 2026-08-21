@@ -39,6 +39,40 @@
       </aside>
     </div>
   </section>
+
+
+  <div id="checkout-modal" class="modal" role="dialog" aria-labelledby="form-title">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close checkout form">&times;</button>
+      <h2 id="form-title">Complete Your Order</h2>
+      
+      <p id="form-error" class="error-message" style="display:none;" role="alert" aria-live="polite"></p>
+
+      <!-- Checkout Form -->
+      <form id="order-form" novalidate>
+        <div class="form-group">
+          <label for="name">Full Name <span class="required">*</span></label>
+          <input type="text" id="name" name="name" required placeholder="Enter your full name" />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number <span class="required">*</span></label>
+          <input type="tel" id="phone" name="phone" required placeholder="0912345678 or +251912345678" />
+        </div>
+
+        <div class="form-group">
+          <label for="address">Delivery Address <span class="required">*</span></label>
+          <textarea id="address" name="address" required placeholder="Enter your full delivery address" rows="3"></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary">Place Order</button>
+          <button type="button" class="btn-secondary" id="cancel-btn">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   </main>
  
 
