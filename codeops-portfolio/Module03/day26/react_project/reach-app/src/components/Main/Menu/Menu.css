@@ -1,0 +1,7 @@
+.menu{
+    background-color:  rgb(220, 171, 64);
+    margin-right: 1px;
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    
+}

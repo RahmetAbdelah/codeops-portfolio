@@ -15,7 +15,7 @@ if (searchEl) {
   });
 }
 
-// Checkout modal and form
+
 const checkoutModal = document.querySelector("#checkout-modal");
 const orderForm = document.querySelector("#order-form");
 const cancelBtn = document.querySelector("#cancel-btn");
@@ -46,6 +46,42 @@ if (orderForm) {
       return;
     }
     
+    const nameRegex = /^[a-zA-A\s'-]{2,50}$/;
+const phoneRegex = /^\+?[0-9\s\-()]{10,15}$/;
+const addressRegex = /^[a-zA-0-9\s,.'#-]{5,100}$/;
+
+let isValid = true;
+
+// Validate Name
+if (!name) {
+  console.error("Name is required.");
+  isValid = false;
+} else if (!nameRegex.test(name)) {
+  console.error("Please enter a valid name (2–50 characters, letters only).");
+  isValid = false;
+}
+
+
+if (!phone) {
+  console.error("Phone number is required.");
+  isValid = false;
+} else if (!phoneRegex.test(phone)) {
+  console.error("Please enter a valid phone number (10–15 digits).");
+  isValid = false;
+}
+
+
+if (!address) {
+  console.error("Address is required.");
+  isValid = false;
+} else if (!addressRegex.test(address)) {
+  console.error("Please enter a valid address (at least 5 characters).");
+  isValid = false;
+}
+
+if (isValid) {
+
+}
     if (state.cart.length === 0) {
       alert("Cart is empty!");
       return;
