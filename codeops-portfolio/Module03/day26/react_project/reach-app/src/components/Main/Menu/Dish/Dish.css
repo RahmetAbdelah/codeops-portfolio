@@ -2,6 +2,29 @@
     background-color: bisque;
     gap:10px;
     height:auto;
-    width:60px;
+    width:200px;
    
+}
+
+.dish-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.spicy-badge {
+    background-color: #ffe6e6;
+    color: #d9534f;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 12px;
+    border: 1px solid #d9534f;
+}
+
+.category-label {
+    color: #666;
+    font-size: 0.85rem;
+    margin: 4px 0;
 }
