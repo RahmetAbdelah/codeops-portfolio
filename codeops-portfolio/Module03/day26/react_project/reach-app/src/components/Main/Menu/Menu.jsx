@@ -2,15 +2,15 @@ import './Menu.css'
 import Dish from './Dish/Dish'
 
 const menu = [
-  { id: 1, name: "Doro Wat", price: 240, isSpicy: true },
-  { id: 2, name: "Shiro", price: 120, isSpicy: false },
-  { id: 3, name: "Tibs", price: 280, isSpicy: true },
-  { id: 4, name: "Kitfo", price: 300, isSpicy: true },
-  { id: 5, name: "Doro Wat", price: 240, isSpicy: true },
-  { id: 6, name: "Shiro", price: 120, isSpicy: false },
-  { id: 7, name: "Tibs", price: 280, isSpicy: true },
-  { id: 8, name: "Beyaynetu", price: 200, isSpicy: false },
+ 
+  { id: 1, name: "Special Doro Wat", price: 450, category: "Mains", spicy: true },
+  { id: 2, name: "Beef Tibs", price: 380, category: "Mains", spicy: false },
+  { id: 3, name: "Shiro Wot", price: 180, category: "Vegetarian", spicy: true },
+  { id: 4, name: "Beyaynetu", price: 220, category: "Vegetarian", spicy: false },
+  { id: 5, name: "Sambusa", price: 40, category: "Appetizers", spicy: false },
+  { id: 6, name: "Tej (Honey Wine)", price: 150, category: "Drinks", spicy: false },
 ];
+
 
 function Menu(){
     return (
@@ -20,7 +20,7 @@ function Menu(){
                     key={d.id} 
                     name={d.name} 
                     price={d.price} 
-                    isSpicy={d.isSpicy} 
+                    spicy={d.spicy} 
                 />
             ))}
         </section>
