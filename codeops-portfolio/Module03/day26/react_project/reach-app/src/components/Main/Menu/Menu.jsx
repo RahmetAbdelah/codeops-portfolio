@@ -1,30 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import './Menu.css';
 import { DishList } from './Dish/Dish';
-import CategoryBar from '.Category/CategoryBar';
-import OrderForm from '.Order/OrderForm';
-import { menuData } from './data'; 
+import CategoryBar from './Category/CategoryBar';
+import OrderForm from './Order/OrderForm';
+import { useFetch } from '../../../hooks/useFetch';
+import { useCart } from '../../../cart/CartProvider';
 
 export default function Menu() {
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [orderTotal, setOrderTotal] = useState(0);
 
-  // Derive unique categories dynamically from the dataset
-  const categories = ["All", ...new Set(menuData.map((d) => d.category))];
+  // Fetch data using custom hook
+  const { data: menuData, loading, error } = useFetch('/api/menu');
 
-  // Derive the filtered dish list based on selected state
-  const filteredDishes = selectedCategory === "All"
-    ? menuData
-    : menuData.filter((d) => d.category === selectedCategory);
+  // Consume cart state and dispatch from CartContext
+  const { items, totalETB, dispatch } = useCart();
 
-  // Handler to update running total in ETB when a dish is added
-  const handleAddToCart = (price) => {
-    setOrderTotal((prevTotal) => prevTotal + price);
-  };
+  // Derive unique categories dynamically using useMemo
+  const categories = useMemo(() => {
+    if (!menuData) return ["All"];
+    return ["All", ...new Set(menuData.map((d) => d.category))];
+  }, [menuData]);
+
+  // Derive filtered dish list using useMemo
+  const filteredDishes = useMemo(() => {
+    if (!menuData) return [];
+    if (selectedCategory === "All") return menuData;
+    return menuData.filter((d) => d.category === selectedCategory);
+  }, [menuData, selectedCategory]);
+
+  if (loading) {
+    return <div className="text-center py-10 font-bold text-gray-600">Loading menu...</div>;
+  }
+
+  if (error) {
+    return <div className="text-center py-10 text-red-500 font-bold">Error loading menu: {error}</div>;
+  }
 
   return (
     <div className="menu-container max-w-4xl mx-auto p-6 font-sans">
-      {/* Header section with running total */}
+      {/* Header section with running total from Context */}
       <header className="flex justify-between items-center border-b pb-4 mb-6">
         <div>
           <h1 className="text-3xl font-extrabold text-red-800">Addis Eats</h1>
@@ -32,7 +46,7 @@ export default function Menu() {
         </div>
         <div className="bg-amber-100 border border-amber-300 px-4 py-2 rounded-lg text-right">
           <span className="text-xs uppercase font-bold text-amber-800 block">Running Total</span>
-          <span className="text-2xl font-black text-amber-950">{orderTotal} ETB</span>
+          <span className="text-2xl font-black text-amber-950">{totalETB} ETB</span>
         </div>
       </header>
 
@@ -43,13 +57,17 @@ export default function Menu() {
         onSelectCategory={setSelectedCategory}
       />
 
-      {/* Dish List displaying filtered items */}
+      {/* Dish List connected to Cart Context */}
       <section className="menu my-6">
-        <DishList dishes={filteredDishes} onAddToCart={handleAddToCart} />
+        <DishList
+          dishes={filteredDishes}
+          cartItems={items}
+          dispatch={dispatch}
+        />
       </section>
 
       {/* TeleBirr Delivery Form */}
-      <OrderForm totalETB={orderTotal} />
+      <OrderForm totalETB={totalETB} />
     </div>
   );
 }

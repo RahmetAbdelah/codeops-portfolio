@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
+import { useCart } from '../../../../cart/CartProvider';
 
-export default function OrderForm({ totalETB }) {
+export default function OrderForm({ totalETB: propTotalETB }) {
+  // Read totalETB and dispatch directly from context (with fallback to prop)
+  const cartContext = useCart();
+  const totalETB = propTotalETB !== undefined ? propTotalETB : cartContext.totalETB;
+  const dispatch = cartContext.dispatch;
+
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -17,12 +23,23 @@ export default function OrderForm({ totalETB }) {
 
   // Validates standard Ethiopian phone format for TeleBirr (+2519... / +2517... or 09... / 07...)
   const isTeleBirrValid = /^(\+251|0)(9|7)\d{8}$/.test(formData.phone.trim());
-  const isFormValid = isTeleBirrValid && formData.name.trim() !== '' && formData.area.trim() !== '';
+  const isFormValid =
+    isTeleBirrValid &&
+    formData.name.trim() !== '' &&
+    formData.area.trim() !== '' &&
+    totalETB > 0;
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!isFormValid) return;
+
     alert(`Order submitted for ${formData.name}! Total: ${totalETB} ETB via TeleBirr.`);
+
+    // Reset form and clear global cart state
+    setFormData({ name: '', phone: '', area: '' });
+    if (dispatch) {
+      dispatch({ type: 'CLEAR_CART' });
+    }
   };
 
   return (

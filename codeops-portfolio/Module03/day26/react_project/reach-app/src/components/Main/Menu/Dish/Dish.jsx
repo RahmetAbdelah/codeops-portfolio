@@ -1,13 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-export function Dish({ item, onAddToCart }) {
-  const [count, setCount] = useState(0);
-
-  const handleAdd = () => {
-    setCount((prevCount) => prevCount + 1);
-    onAddToCart(item.price);
-  };
-
+export function Dish({ item, quantity = 0, onAdd, onRemove }) {
   return (
     <div className="border border-gray-200 rounded-lg p-4 bg-white shadow-sm hover:shadow-md transition flex justify-between items-center my-2">
       <div>
@@ -23,13 +16,21 @@ export function Dish({ item, onAddToCart }) {
       </div>
 
       <div className="flex items-center gap-3">
-        {count > 0 && (
-          <span className="text-sm font-semibold bg-gray-100 px-2 py-1 rounded text-gray-700">
-            x{count}
-          </span>
+        {quantity > 0 && (
+          <>
+            <button
+              onClick={onRemove}
+              className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold px-3 py-1 rounded transition cursor-pointer"
+            >
+              -
+            </button>
+            <span className="text-sm font-semibold bg-gray-100 px-2 py-1 rounded text-gray-700">
+              x{quantity}
+            </span>
+          </>
         )}
         <button
-          onClick={handleAdd}
+          onClick={onAdd}
           className="bg-emerald-600 hover:bg-emerald-700 text-white font-medium px-4 py-1.5 rounded-md transition cursor-pointer"
         >
           Add
@@ -39,16 +40,29 @@ export function Dish({ item, onAddToCart }) {
   );
 }
 
-export function DishList({ dishes, onAddToCart }) {
+export function DishList({ dishes, cartItems, dispatch }) {
   if (dishes.length === 0) {
     return <p className="text-gray-500 my-6 text-center">No dishes found in this category.</p>;
   }
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
-      {dishes.map((dish) => (
-        <Dish key={dish.id} item={dish} onAddToCart={onAddToCart} />
-      ))}
+      {dishes.map((dish) => {
+        const cartItem = cartItems.find((item) => item.id === dish.id);
+        const quantity = cartItem ? cartItem.quantity : 0;
+
+        return (
+          <Dish
+            key={dish.id}
+            item={dish}
+            quantity={quantity}
+            onAdd={() => dispatch({ type: 'ADD_ITEM', payload: dish })}
+            onRemove={() => dispatch({ type: 'REMOVE_ITEM', payload: dish })}
+          />
+        );
+      })}
     </div>
   );
 }
+
+export default Dish;
