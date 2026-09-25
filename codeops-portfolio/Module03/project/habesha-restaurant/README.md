@@ -21,7 +21,7 @@ The application supports these customer flows:
 - Continue to checkout at `/checkout`.
 - Choose delivery or pick-up.
 - Enter recipient information.
-- Open the simple account screen at `/login`.
+- Open the simple account screen at `/logi,n`.
 
 The application does not connect to a real payment service or restaurant backend. Checkout is intentionally a front-end learning flow.
 
